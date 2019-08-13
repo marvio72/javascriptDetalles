@@ -1,37 +1,23 @@
-var persona = {
-  nombre: "Marco",
-  apellido: "Ruvalcaba",
-  edad: 47,
-  direccion: {
-    pais: "México",
-    ciudad: "Zapopan",
-    edificio: {
-      nombre: "Edificio Principal",
-      telefono: "2222-3333"
-    }
-  }
+
+
+function primeraFuncion(){
+
+  var a = 20;
+
+  console.log(a);
 }
 
-console.log(persona.nombre);
-console.log(persona.direccion.pais);
-
-// AGREGAR UNA NUEVA PROPIEDAD
-persona.direccion.zipcode = 45239;
-console.log(persona.direccion);
+primeraFuncion();
 
 
-console.log(persona.direccion.edificio.nombre);
 
 
-// CREAR VARIABLE POR REFERENCIA PARA EVITAR ESCRIBIR TODOS LOS PARAMETROS 
-var edificio = persona.direccion.edificio;
-console.log(edificio.telefono);
+function invocarFuncion(){
 
-// AGREGAMOS NUMERO DE PISO COMO NUEVA REFERENCIA
-edificio.piso = 3;
-console.log(edificio);
-console.log(persona);
+  console.log("Invocada");
+}
 
-// NOTACION DE CORCHETES
+// COMO LO VIMOS ANTES SE IGUALAN LOS OBJETOS SOLO LLAMANDOLOS SIN LOS PARENTESIS
+var miFuncion = invocarFuncion;
 
-console.log(persona["direccion"]["edificio"]["telefono"]);
+miFuncion();
