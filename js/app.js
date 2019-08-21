@@ -1,32 +1,46 @@
-// Una buena practica es poner las funciones al inicio del archivo
-function imprimir( nombre, apellido ){
 
-  if (apellido === undefined) {
-    
-    apellido = "xxx";
-
-  }
-  
-  console.log(nombre +' '+ apellido);
-
-  // Forma rapida el mismo resultado
-  apellido = apellido || "xxx";
-
-  console.log(nombre +' '+ apellido);
-
-}
 
 // Funcion con objetos
 function imprimirPersona(persona){
 
   console.log(persona.nombre +" "+ persona.apellido);
+  //si modificamos el nombre de el objeto nos devolvera este cambio en la funcion.
+  persona.nombre = "Romina";
 }
 
-imprimir("Marco","Ruvalcaba");
-
-
-//Objetos anonimos
-imprimirPersona({
+var obj = {
   nombre: 'Violeta',
   apellido: 'González'
+}
+
+imprimirPersona(obj);
+
+console.log(obj);
+
+
+console.log(".................................................");
+//FUNCION ANONIMA
+//funcion dentro de otra función;
+function imprimir( fn ){
+  fn();
+}
+
+var persona = {
+  nombre: "Violeta",
+  apellido: "González"
+};
+
+imprimir( function(){
+
+  console.log("Funcion anónima");
+
 });
+
+console.log(".................................................");
+//FUNCION DECLARADA
+
+var miFuncion = function(){
+  console.log("miFunción");
+}
+
+imprimir(miFuncion);
