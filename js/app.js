@@ -1,23 +1,32 @@
+// Una buena practica es poner las funciones al inicio del archivo
+function imprimir( nombre, apellido ){
 
+  if (apellido === undefined) {
+    
+    apellido = "xxx";
 
-function primeraFuncion(){
+  }
+  
+  console.log(nombre +' '+ apellido);
 
-  var a = 20;
+  // Forma rapida el mismo resultado
+  apellido = apellido || "xxx";
 
-  console.log(a);
+  console.log(nombre +' '+ apellido);
+
 }
 
-primeraFuncion();
+// Funcion con objetos
+function imprimirPersona(persona){
 
-
-
-
-function invocarFuncion(){
-
-  console.log("Invocada");
+  console.log(persona.nombre +" "+ persona.apellido);
 }
 
-// COMO LO VIMOS ANTES SE IGUALAN LOS OBJETOS SOLO LLAMANDOLOS SIN LOS PARENTESIS
-var miFuncion = invocarFuncion;
+imprimir("Marco","Ruvalcaba");
 
-miFuncion();
+
+//Objetos anonimos
+imprimirPersona({
+  nombre: 'Violeta',
+  apellido: 'González'
+});
