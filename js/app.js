@@ -1,33 +1,18 @@
-var nombre = "Juan Carlos";
 
-// El this es el objeto
+function Persona(nombre, apellido, edad){
 
-var persona = {
+  this.nombre = nombre;
+  this.apellido = apellido;
+  this.edad = edad;
 
-  nombre: "Maria",
-  apellido: "Dubon",
-  imprimirNombre: function(){
-    console.log(this.nombre + " " + this.apellido);
-  },
-  direccion: {
-    pais: "México",
-    obtenerPais: function(){
+  this.nombreCompleto = function(){
+      return this.nombre + " " + this.apellido;
+  }
 
-      var self = this;
+}
 
-      var nuevaDireccion = function(){
-        
-        console.log(self);
-        console.log("La dirección es en " + self.pais);
+var juan = new Persona("Marco","Ruvalcaba",47);
 
-      }
-
-      nuevaDireccion();
-    }
-  } 
-};
-
-persona.nombre = "Marco";
-
-persona.imprimirNombre();
-persona.direccion.obtenerPais();
+console.log(juan);
+console.log(juan.nombre);
+console.log(juan.nombreCompleto());
