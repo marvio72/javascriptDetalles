@@ -1,26 +1,19 @@
-function crearPersona(nombre , apellido){
 
-  return{
-    nombre: nombre,
-    apellido: apellido
-  }
+//Las funciones son objetos.
+function a(){
+
+  console.log("Función a");
+
 }
 
-function creaFuncion(){
+a();
 
-  return function( nombre ){
-    console.log("Me creo " + nombre );
-
-    return function(){
-      console.log("Segunda funcion");
-    }
+a.nombre = "Maria";
+a.direccion = {
+  pais: "Costa Rica",
+  ciudad: "San José",
+  edificio: {
+    piso: "8vo",
+    nombre: "Edificio primero"
   }
 }
-
-var persona = crearPersona("Marco","Ruvalcaba");
-
-var nuevaFuncion = creaFuncion();
-
-var segundaFuncion = nuevaFuncion( persona.nombre );
-
-segundaFuncion();
