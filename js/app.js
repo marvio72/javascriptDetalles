@@ -1,19 +1,33 @@
+var nombre = "Juan Carlos";
 
-//Las funciones son objetos.
-function a(){
+// El this es el objeto
 
-  console.log("Función a");
+var persona = {
 
-}
+  nombre: "Maria",
+  apellido: "Dubon",
+  imprimirNombre: function(){
+    console.log(this.nombre + " " + this.apellido);
+  },
+  direccion: {
+    pais: "México",
+    obtenerPais: function(){
 
-a();
+      var self = this;
 
-a.nombre = "Maria";
-a.direccion = {
-  pais: "Costa Rica",
-  ciudad: "San José",
-  edificio: {
-    piso: "8vo",
-    nombre: "Edificio primero"
-  }
-}
+      var nuevaDireccion = function(){
+        
+        console.log(self);
+        console.log("La dirección es en " + self.pais);
+
+      }
+
+      nuevaDireccion();
+    }
+  } 
+};
+
+persona.nombre = "Marco";
+
+persona.imprimirNombre();
+persona.direccion.obtenerPais();
