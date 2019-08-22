@@ -1,46 +1,53 @@
 
+function obtenerAleatorio(){
 
-// Funcion con objetos
-function imprimirPersona(persona){
+  return Math.random();
 
-  console.log(persona.nombre +" "+ persona.apellido);
-  //si modificamos el nombre de el objeto nos devolvera este cambio en la funcion.
-  persona.nombre = "Romina";
 }
 
-var obj = {
-  nombre: 'Violeta',
-  apellido: 'González'
+function obtenerNombre(){
+
+  return "Marco";
 }
 
-imprimirPersona(obj);
+function esMayor05(){
 
-console.log(obj);
-
-
-console.log(".................................................");
-//FUNCION ANONIMA
-//funcion dentro de otra función;
-function imprimir( fn ){
-  fn();
+  if (obtenerAleatorio()> 0.5) {
+    return true;
+  }else{
+    return false;
+  }
 }
 
-var persona = {
-  nombre: "Violeta",
-  apellido: "González"
-};
+//FUNCION CON OBJETOS
+function crearPersona( nombre, apellido){
 
-imprimir( function(){
-
-  console.log("Funcion anónima");
-
-});
-
-console.log(".................................................");
-//FUNCION DECLARADA
-
-var miFuncion = function(){
-  console.log("miFunción");
+  //variable anonima
+  return {
+    nombre: nombre,
+    apellido: apellido
+  }
 }
 
-imprimir(miFuncion);
+console.log(obtenerAleatorio() * 10);
+
+//Meter la funcion en una variable
+
+var nombre = obtenerNombre();
+
+console.log(nombre + " Ruvalcaba");
+
+console.log("...........................");
+
+if (esMayor05()) {
+  console.log("Es mayor a 0.5");
+}else{
+  console.log("Es menor a 0.5");
+}
+
+//La variable se convierte como un objeto.
+var persona = crearPersona("Maria","Paz");
+console.log(persona);
+//Para llamar a cada elemento del objeto
+console.log(persona.nombre);
+console.log(persona.apellido);
