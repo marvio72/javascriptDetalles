@@ -1,18 +1,15 @@
 
 
+function identifica( param ){
+  console.log(typeof param);
+  console.log(param instanceof Persona);
+}
 
-function ejecutarFuncion( fn ){
+function Persona(){
+  this.nombre = "Marco";
+  this.edad = 30;
+}
 
-  if (fn() === 1) {
-    return true;
-  }else{
-    return false;
-  }
-};
+var marco = new Persona();
 
-console.log(
-  ejecutarFuncion(function(){
-    console.log("Función anónima ejecutada");
-    return 1;
-  })
-);
+identifica(marco);
