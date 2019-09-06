@@ -1,56 +1,42 @@
+  
+// El nombre de la funcion esta en mayusculas porque se trata de una clase
+  function Jugador( nombre ){
+    this.nombre = nombre;
+    this.pv = 100;
+    this.sp = 100;
 
+    this.curar = function (jugadorObjetivo) {
 
-// function Persona(nombre, apellido){
+      if (this.sp >= 40) {
+        this.sp -= 40;
+        jugadorObjetivo.pv += 20;
+      }else{
+        console.info(this.nombre +" no tiene sp");
+      }
+      this.estado(jugadorObjetivo)
+    }
 
-//   this.nombre = nombre;
-//   this.apellido = apellido;
-//   this.edad = 30;
+    this.tirarFlecha = function( jugadorObjetivo){
+      if (jugadorObjetivo.pv > 40) {
+        jugadorObjetivo.pv -= 40;
+      }else{
+        jugadorObjetivo.pv = 0;
+        console.error( jugadorObjetivo.nombre + " murio!!!");
+      }
+      this.estado(jugadorObjetivo);
+    }
 
-//   this.nombreCompleto = function(){
-//     return this.nombre + " " + this.apellido;  
-//   }
-// }
-
-function Informacion(nombre, apellido, edad, calle, numero, colonia, ciu, estado, pais){
-
-  this.nombre = nombre;
-  this.apellido = apellido;
-  this.edad = edad;
-  this.nombreCompleto = function() {
-    return nombre+" "+apellido+" "+"("+edad+")";
-  }
-
-  this.direccion = {
-    calle: calle,
-    numero: numero,
-    colonia: colonia,
-    direccionCompleta: function() {
-      return calle+" "+numero+" "+colonia;
+    this.estado = function( jugadorObjetivo){
+      console.info(this);
+      console.info(jugadorObjetivo);
     }
   }
 
-  this.ciudad = {
-    ciu: ciu,
-    estado: estado,
-    pais: pais,
-    ciudadCompleta: function(){
-      return ciu+" "+estado+" "+pais;
-    }
-  }
-   
+  var gandalf = new Jugador("Gandalf");
+  var legolas = new Jugador("Legolas");
   
+  console.log('gandalf: ', gandalf);
+  console.log('legolas: ', legolas);
   
-}
+  gandalf.curar(legolas);
 
-
-// var juan = new Persona("Marco","Ruvalcaba");
-
-var marco = new Informacion("Marco","Ruvalcaba",47,"Av. Compositores",4550,"Los Pinos","Zapopan","Jalisco","México");
-
-// console.log(juan.nombreCompleto());
-
-
-console.log(marco.nombreCompleto());
-console.log(marco.direccion.direccionCompleta());
-
-console.log(marco.nombreCompleto()+" "+marco.direccion.direccionCompleta()+" "+marco.ciudad.ciudadCompleta());
