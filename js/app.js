@@ -1,42 +1,17 @@
-  
-// El nombre de la funcion esta en mayusculas porque se trata de una clase
-  function Jugador( nombre ){
-    this.nombre = nombre;
-    this.pv = 100;
-    this.sp = 100;
 
-    this.curar = function (jugadorObjetivo) {
 
-      if (this.sp >= 40) {
-        this.sp -= 40;
-        jugadorObjetivo.pv += 20;
-      }else{
-        console.info(this.nombre +" no tiene sp");
-      }
-      this.estado(jugadorObjetivo)
-    }
+function Persona(){
+  this.nombre   = "Marco";
+  this.apellido = "Ruvalcaba";
+  this.edad     = 47;
+  this.pais     = "México";
 
-    this.tirarFlecha = function( jugadorObjetivo){
-      if (jugadorObjetivo.pv > 40) {
-        jugadorObjetivo.pv -= 40;
-      }else{
-        jugadorObjetivo.pv = 0;
-        console.error( jugadorObjetivo.nombre + " murio!!!");
-      }
-      this.estado(jugadorObjetivo);
-    }
+}
 
-    this.estado = function( jugadorObjetivo){
-      console.info(this);
-      console.info(jugadorObjetivo);
-    }
-  }
+Persona.prototype.imprimirInfo = function(){
+  console.log(this.nombre +" "+ this.apellido +" "+ "("+ this.edad +")");
+}
+var mar = new Persona();
 
-  var gandalf = new Jugador("Gandalf");
-  var legolas = new Jugador("Legolas");
-  
-  console.log('gandalf: ', gandalf);
-  console.log('legolas: ', legolas);
-  
-  gandalf.curar(legolas);
-
+console.log(mar);
+mar.imprimirInfo();
