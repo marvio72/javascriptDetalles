@@ -1,13 +1,18 @@
-(function(){
-  var a = 10;
 
-  console.log(a);
 
-  function cambiarA(){
-    a=20;
+
+function ejecutarFuncion( fn ){
+
+  if (fn() === 1) {
+    return true;
+  }else{
+    return false;
   }
+};
 
-  cambiarA();
-
-  console.log(a);
-})();
+console.log(
+  ejecutarFuncion(function(){
+    console.log("Función anónima ejecutada");
+    return 1;
+  })
+);
