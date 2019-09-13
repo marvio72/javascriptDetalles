@@ -1,12 +1,18 @@
-var arguments = 10;
+function crearProducto(nombre, precio){
 
-function miFuncion(a,b,c,d){
-  if (arguments.length !== 4) {
-    console.log("la funcion necesita 4 parametros");
-    return;
-  }
-  console.log(a + b + c + d);
+  nombre = nombre || "sin nombre";
+  precio = precio || 0;
+
+  console.log("Producto: ", nombre, " Precio: ", precio);
 }
 
+function crearProducto100(nombre) {
+  crearProducto(nombre, 100);
+}
 
-miFuncion(10, 20, 30, 40);
+function crearProductoCamisa(precio) {
+  crearProducto("Camisa", precio);
+}
+crearProducto("pinzas", 10);
+crearProducto100("Corrector");
+crearProductoCamisa(78);
