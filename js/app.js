@@ -1,18 +1,28 @@
-function crearProducto(nombre, precio){
+function determinaDato( a ){
 
-  nombre = nombre || "sin nombre";
-  precio = precio || 0;
+  if (a === undefined) {
+    console.log("A es undefined... no se que hacer");
+  }
 
-  console.log("Producto: ", nombre, " Precio: ", precio);
+  if (typeof a === "number") {
+    console.log("A es un numero, y puedo hacer operaciones con numeros");
+  }
+
+  if (typeof a === "string") {
+    console.log("A es un texto, puedo hacer operaciones de texto");
+  }
+  
+  if (typeof a === "object") {
+    console.log("A es un objeto... pero puede ser cualquier cosa");
+
+    if (a instanceof Number) {
+      console.log("A es un objeto numerico...");
+    }
+  }
 }
 
-function crearProducto100(nombre) {
-  crearProducto(nombre, 100);
-}
+var b = new Number(3);
 
-function crearProductoCamisa(precio) {
-  crearProducto("Camisa", precio);
-}
-crearProducto("pinzas", 10);
-crearProducto100("Corrector");
-crearProductoCamisa(78);
+console.log(b);
+
+determinaDato(b);
