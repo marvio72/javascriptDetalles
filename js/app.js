@@ -1,24 +1,17 @@
 
-function crearFunciones(){
 
-  var arr = [];
-  var num = 1;
+var a = 10.456789;
+var b = new Number(10);
 
-  for(var numero = 1; numero <= 3; numero ++){
 
-    arr.push(
-      (function(numero){
-        return function(){
-          console.log( numero );
-        }
-      })(numero)
-    );
-  }
-  return arr;
-}
+console.log(a.toFixed(2));
+console.log(a.toString());
 
-var funciones = crearFunciones();
+console.log(a.toPrecision(4));
 
-funciones[0]();
-funciones[1]();
-funciones[2]();
+
+var b = new Number ("20e");
+
+console.log(b);
+console.log(b.valueOf());
+
