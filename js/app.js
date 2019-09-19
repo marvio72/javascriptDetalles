@@ -1,28 +1,24 @@
-function determinaDato( a ){
 
-  if (a === undefined) {
-    console.log("A es undefined... no se que hacer");
-  }
+function crearFunciones(){
 
-  if (typeof a === "number") {
-    console.log("A es un numero, y puedo hacer operaciones con numeros");
-  }
+  var arr = [];
+  var num = 1;
 
-  if (typeof a === "string") {
-    console.log("A es un texto, puedo hacer operaciones de texto");
-  }
-  
-  if (typeof a === "object") {
-    console.log("A es un objeto... pero puede ser cualquier cosa");
+  for(var numero = 1; numero <= 3; numero ++){
 
-    if (a instanceof Number) {
-      console.log("A es un objeto numerico...");
-    }
+    arr.push(
+      (function(numero){
+        return function(){
+          console.log( numero );
+        }
+      })(numero)
+    );
   }
+  return arr;
 }
 
-var b = new Number(3);
+var funciones = crearFunciones();
 
-console.log(b);
-
-determinaDato(b);
+funciones[0]();
+funciones[1]();
+funciones[2]();
