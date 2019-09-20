@@ -1,39 +1,31 @@
+var hoy = new Date();
+var FMili = new Date(1569016817384);
+var fFija = new Date(2019, 02, 07, 10, 55, 10, 1);
 
 
-var a = new String("Marco Rafael Ruvalcaba Espinoza");
+console.log(hoy);
+console.log(FMili);
+console.log(fFija);
 
-console.log(a);
+console.log(hoy.getFullYear());
+console.log(hoy.getMonth());
+console.log(hoy.getDate());
+console.log(hoy.getMinutes());
+console.log(hoy.getSeconds());
+console.log(hoy.getMilliseconds());
 
-console.log(a.toUpperCase());
-console.log(a.toLowerCase());
+console.log(hoy.getTime());
 
-var i = a.indexOf("Ruvalcaba");
-console.log("La letra esta: " +  i);
+// trabajar con fechas
 
-i = a.lastIndexOf("n");
-console.log("La letra esta: " +  i);
+var inicio = new Date();
 
-var nombre = a.substr(6,3);
-console.log(nombre);
-
-nombre = a.substr(0,a.indexOf(" "));
-console.log(nombre);
-
-
-var split = a.split(" ");
-console.log(split);
-console.log(split.length);
-
-
-//Funciones viejas
-
-function estilo(cadena){
-  return document.write(cadena);
+for (let i = 0; i < 15000; i++) {
+  console.log("Algo...");
 }
 
-estilo(a.bold());
-estilo(a.blink());
-estilo(a.italics());
-estilo(a.strike());
+var fin = new Date();
 
-
+var duracion = fin.getTime() - inicio.getTime();
+console.log(duracion, "milisegundos");
+console.log(duracion / 1000, "segundos");
