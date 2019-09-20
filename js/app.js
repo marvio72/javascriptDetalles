@@ -1,31 +1,15 @@
-var hoy = new Date();
-var FMili = new Date(1569016817384);
-var fFija = new Date(2019, 02, 07, 10, 55, 10, 1);
+var fecha = new Date(2019,2,7);
 
+Date.prototype.sumarDias = function(dias){
+  this.setDate( this.getDate() + dias);
+  return this;
+};
 
-console.log(hoy);
-console.log(FMili);
-console.log(fFija);
+Date.prototype.sumarAnio = function(anio){
+  this.setFullYear( this.getFullYear() + anio);
+  return this;
+};
 
-console.log(hoy.getFullYear());
-console.log(hoy.getMonth());
-console.log(hoy.getDate());
-console.log(hoy.getMinutes());
-console.log(hoy.getSeconds());
-console.log(hoy.getMilliseconds());
-
-console.log(hoy.getTime());
-
-// trabajar con fechas
-
-var inicio = new Date();
-
-for (let i = 0; i < 15000; i++) {
-  console.log("Algo...");
-}
-
-var fin = new Date();
-
-var duracion = fin.getTime() - inicio.getTime();
-console.log(duracion, "milisegundos");
-console.log(duracion / 1000, "segundos");
+console.log(fecha);
+console.log(fecha.sumarDias(10));
+console.log(fecha.sumarAnio(20)); 
