@@ -1,21 +1,27 @@
-var PI = Math.PI;
-var E = Math.E;
+var texto = "Hola Mundoooo\nQue Tal?";
+console.log(texto);
 
-console.log(PI);
-console.log(E);
 
-var num1 = 10.6323345;
+var arr = texto.match( /a/);
+console.log(arr);
+arr = texto.match( /^H/);
+console.log(arr);
+arr = texto.match( /o$/);
+console.log(arr);
+arr = texto.match( /.../);
+console.log(arr);
+arr = texto.match(/[aeiou]/igm);
+console.log(arr);
+arr = texto.match(/o+/g);
+console.log(arr);
+arr = texto.match(/o{3,4}/g);
+console.log(arr);
 
-console.log(num1);
-console.log(Math.round(num1));
-console.log(Math.floor(num1));
 
-function numeroRandom(min, max){
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
+var texto1 = "Aeropuerto";
+arr = texto1.match(/[aeiou]{2}/ig);
+console.log(arr);
 
-console.log(numeroRandom(1,6));
-
-console.log(Math.sqrt(9));
-
-console.log(Math.pow(5,3));
+var texto2 = "La respuesta de la suma es: 45 + 60 = 105";
+arr = texto2.match(/\d{1,}|respuesta/g);
+console.log(arr);
