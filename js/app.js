@@ -1,60 +1,36 @@
-function crearCookie(nombre,valor){
-  valor = escape(valor);
-
-  //Crear una fecha de finalización
-  var hoy = new Date();
-  hoy.setMonth(hoy.getMonth()+1);
-
-  document.cookie = nombre + "=" + valor + ";expires="+hoy.toUTCString()+";";
-}
-
-//Como funciona escape();
-var demo = "123;123*123'123/ 123";
-
-// console.log(demo);
-// console.log(escape(demo));
-// console.log(unescape(escape(demo)));
 
 
-//Eliminar una cookie;
-function borrarCookie( nombre ){
-  
-  var hoy = new Date();
-  hoy.setMonth( hoy.getMonth()-1);
-  
-  document.cookie = nombre+"x;expires="+hoy.toUTCString()+";";
-}
-
-//Obtener la cookie
-function getCookie( nombre ){
-
-  var cookies = document.cookie;
-
-  var cookieArr = cookies.split("; ");
-  console.log(cookieArr);
-
-  for (let i = 0; i < cookieArr.length; i++) {
-    
-    var parArr = cookieArr[i].split("=");
-    // cookieArr[i] = parArr;
-
-    if (parArr[0] === nombre) {
-      return unescape( parArr[1]);
-    }
-    
+var carro = {
+  color: "Blanco",
+  marca: "Mazda",
+  imprimir: function(){
+    var salida = this.marca +" - "+ this.color;
+    return salida;
   }
+};
 
-  return undefined;
-}
+var carro2 = {
+  color: "Rojo",
+  marca: "Toyota"
+};
 
-console.log(getCookie("nombre"));
+console.log(carro.imprimir());
 
-//Crear cookies
-// crearCookie("nombre", "Violeta");
-// crearCookie("correo", "vgonzalez@oversistemas.com");
-// crearCookie("direccion", "Av. Compositores 4550");
-// borrarCookie("nombre");
-// document.cookie = "apellido=Ruvalcaba;";
+var logCarro = function(arg1,arg2){
 
+  console.log("Carro:", this.imprimir());
+  console.log("Argumentos:", arg1, arg2);
+  console.log("===============================");
+};
 
-// console.log(cookies); 
+var logModeloCarro = logCarro.bind( carro );
+
+logModeloCarro("sosos","diididi");  
+
+logModeloCarro.call( carro, "123", "456");
+logModeloCarro.apply( carro, ["456", "789"]);
+
+//funciones prestadas
+// Podemos agarrar funciones de cualquier otro objeto que hayamos definido anteriorment
+
+console.log(carro.imprimir.call(carro2));
