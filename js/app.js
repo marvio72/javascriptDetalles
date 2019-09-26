@@ -1,27 +1,60 @@
-var texto = "Hola Mundoooo\nQue Tal?";
-console.log(texto);
+function crearCookie(nombre,valor){
+  valor = escape(valor);
+
+  //Crear una fecha de finalización
+  var hoy = new Date();
+  hoy.setMonth(hoy.getMonth()+1);
+
+  document.cookie = nombre + "=" + valor + ";expires="+hoy.toUTCString()+";";
+}
+
+//Como funciona escape();
+var demo = "123;123*123'123/ 123";
+
+// console.log(demo);
+// console.log(escape(demo));
+// console.log(unescape(escape(demo)));
 
 
-var arr = texto.match( /a/);
-console.log(arr);
-arr = texto.match( /^H/);
-console.log(arr);
-arr = texto.match( /o$/);
-console.log(arr);
-arr = texto.match( /.../);
-console.log(arr);
-arr = texto.match(/[aeiou]/igm);
-console.log(arr);
-arr = texto.match(/o+/g);
-console.log(arr);
-arr = texto.match(/o{3,4}/g);
-console.log(arr);
+//Eliminar una cookie;
+function borrarCookie( nombre ){
+  
+  var hoy = new Date();
+  hoy.setMonth( hoy.getMonth()-1);
+  
+  document.cookie = nombre+"x;expires="+hoy.toUTCString()+";";
+}
+
+//Obtener la cookie
+function getCookie( nombre ){
+
+  var cookies = document.cookie;
+
+  var cookieArr = cookies.split("; ");
+  console.log(cookieArr);
+
+  for (let i = 0; i < cookieArr.length; i++) {
+    
+    var parArr = cookieArr[i].split("=");
+    // cookieArr[i] = parArr;
+
+    if (parArr[0] === nombre) {
+      return unescape( parArr[1]);
+    }
+    
+  }
+
+  return undefined;
+}
+
+console.log(getCookie("nombre"));
+
+//Crear cookies
+// crearCookie("nombre", "Violeta");
+// crearCookie("correo", "vgonzalez@oversistemas.com");
+// crearCookie("direccion", "Av. Compositores 4550");
+// borrarCookie("nombre");
+// document.cookie = "apellido=Ruvalcaba;";
 
 
-var texto1 = "Aeropuerto";
-arr = texto1.match(/[aeiou]{2}/ig);
-console.log(arr);
-
-var texto2 = "La respuesta de la suma es: 45 + 60 = 105";
-arr = texto2.match(/\d{1,}|respuesta/g);
-console.log(arr);
+// console.log(cookies); 
