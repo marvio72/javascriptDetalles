@@ -1,58 +1,46 @@
 
 
-var nota = 78;
+var mes = 7;
 
-if(nota >= 90){
-   
-  console.log("A");
+switch (mes) {
+  case 1:
+    console.log("Enero");
+    break;
+  case 2:
+    console.log("Febrero");
+    break;
+  case 3:
+    console.log("Marzo");
+    break;
+  case 4:
+    console.log("Abril");
+    break;
+  case 5:
+    console.log("Mayo");
+    break;
+  case 6:
+    console.log("Junio");
+    break;
+  case 7:
+    console.log("Julio");
+    break;
+  case 8:
+    console.log("Agosto");
+    break;
+  case 9:
+    console.log("Septiembre");
+    break;
+  case 10:
+    console.log("Octubre");
+    break;
+  case 11:
+    console.log("Noviembre");
+    break;
+  case 12:
+    console.log("Diciembre");
+    break;
 
-}else if ( nota >= 80){
-
-  console.log("B");
-
-}else if ( nota >= 70){
-
-  console.log("C");
-
-}else if ( nota >= 60){
-
-  console.log("D");
-
-}else{
-
-  console.log("F");
-
+  default:
+    console.log("Valor no aceptado");
+    break;
 }
-
-
-var a = 10;
-var b = 20;
-
-
-var c = (a > b ) ? a : b ;
-console.log(c);
-
-var c = (a > b) ? function(){
-  console.log("A es mayor a B");
-  return a;
-}() : function(){
-  console.log("B es mayor a A");
-  return b;
-}();
-
-console.log(c);
-
-var x = 10;
-var y = undefined;
-
-c = x || y;
-console.log(c);
-
-
-function getNombre(nombre){
-  var nomb = null || null || null || undefined || 123;
-
-  console.log(nomb);
-}
-
-getNombre();
