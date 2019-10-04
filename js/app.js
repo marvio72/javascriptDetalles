@@ -1,36 +1,58 @@
 
 
-var carro = {
-  color: "Blanco",
-  marca: "Mazda",
-  imprimir: function(){
-    var salida = this.marca +" - "+ this.color;
-    return salida;
-  }
-};
+var nota = 78;
 
-var carro2 = {
-  color: "Rojo",
-  marca: "Toyota"
-};
+if(nota >= 90){
+   
+  console.log("A");
 
-console.log(carro.imprimir());
+}else if ( nota >= 80){
 
-var logCarro = function(arg1,arg2){
+  console.log("B");
 
-  console.log("Carro:", this.imprimir());
-  console.log("Argumentos:", arg1, arg2);
-  console.log("===============================");
-};
+}else if ( nota >= 70){
 
-var logModeloCarro = logCarro.bind( carro );
+  console.log("C");
 
-logModeloCarro("sosos","diididi");  
+}else if ( nota >= 60){
 
-logModeloCarro.call( carro, "123", "456");
-logModeloCarro.apply( carro, ["456", "789"]);
+  console.log("D");
 
-//funciones prestadas
-// Podemos agarrar funciones de cualquier otro objeto que hayamos definido anteriorment
+}else{
 
-console.log(carro.imprimir.call(carro2));
+  console.log("F");
+
+}
+
+
+var a = 10;
+var b = 20;
+
+
+var c = (a > b ) ? a : b ;
+console.log(c);
+
+var c = (a > b) ? function(){
+  console.log("A es mayor a B");
+  return a;
+}() : function(){
+  console.log("B es mayor a A");
+  return b;
+}();
+
+console.log(c);
+
+var x = 10;
+var y = undefined;
+
+c = x || y;
+console.log(c);
+
+
+function getNombre(nombre){
+  var nomb = null || null || null || undefined || 123;
+
+  console.log(nomb);
+}
+
+getNombre();
