@@ -1,46 +1,20 @@
 
 
-var mes = 7;
+var objetoJS = {
+  nombre: "Marco",
+  edad: 47
+};
 
-switch (mes) {
-  case 1:
-    console.log("Enero");
-    break;
-  case 2:
-    console.log("Febrero");
-    break;
-  case 3:
-    console.log("Marzo");
-    break;
-  case 4:
-    console.log("Abril");
-    break;
-  case 5:
-    console.log("Mayo");
-    break;
-  case 6:
-    console.log("Junio");
-    break;
-  case 7:
-    console.log("Julio");
-    break;
-  case 8:
-    console.log("Agosto");
-    break;
-  case 9:
-    console.log("Septiembre");
-    break;
-  case 10:
-    console.log("Octubre");
-    break;
-  case 11:
-    console.log("Noviembre");
-    break;
-  case 12:
-    console.log("Diciembre");
-    break;
+console.log("Objeto literal", objetoJS);
 
-  default:
-    console.log("Valor no aceptado");
-    break;
-}
+
+//CONVERTIRLO A MODO JSON
+var jsonString = JSON.stringify(objetoJS);
+
+console.log("Estructura Jason", jsonString);
+
+//CONVERTIRLO DE MODO JSON A OBJETO JS 
+
+var objetoDesdeJson = JSON.parse(jsonString);
+
+console.log("objetoDesdeJason", objetoDesdeJson);
