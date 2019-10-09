@@ -1,31 +1,18 @@
-for (let i = 0; i <= 10; i++) {
+
+for_principal:
+for (let i = 1; i <= 5; i++) {
+  console.log("i: ", i);
   
-  console.log(i);
-  
-}
+    for_secundario:
+    for (let w = 1; w <= 5; w++) {
+      console.log("w: ", w); 
 
-var Persona = function(){
-  this.nombre = "Marco";
-  this.apellido = "Ruvalcaba";
-  this.edad = 47;
-};
+      for (let x = 1; x <= 5; x++) {
+        console.log("x: ",x);
 
-var marco = new Persona();
-
-Persona.prototype.direccion = "Av. Compositores 4550";
-
-for (prop in marco) {
-  // Con hasOwnProperty nos referimos a las propiedades que incluimos en nuestro objeto,
-  // Por lo que el prototipo queda excluido.
-
-    if (!marco.hasOwnProperty( prop )) {
-      continue;
+        break for_principal;
+        
+      }
     }
-    console.log(prop, ":", marco[prop]);
-  }
 
-
-  //forache
-[1,2,3,4,5,6,true,8,9,false,"nombre"].forEach(val => {
-  console.log(val);
-});
+}
