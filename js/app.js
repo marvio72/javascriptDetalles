@@ -1,32 +1,31 @@
-var i = 1;
-
-while (i <= 10) {
-  console.log(i);
-
-  if (i === 5) {
-    break;
-  }
-  i++;
-}
-
-var j = 0;
-while (j <10) {
-  j++;
+for (let i = 0; i <= 10; i++) {
   
-  //Omite el cuatro pero continua con el siguiente.
-  if(j === 4){
-    continue;
-  }
-  console.log(j);
+  console.log(i);
+  
 }
 
+var Persona = function(){
+  this.nombre = "Marco";
+  this.apellido = "Ruvalcaba";
+  this.edad = 47;
+};
 
-// El dowhile ejecuta por lo menos una vez el codigo y despues evalua si continua o no
+var marco = new Persona();
 
-var h = 0;
+Persona.prototype.direccion = "Av. Compositores 4550";
 
-do {
-   h++;
+for (prop in marco) {
+  // Con hasOwnProperty nos referimos a las propiedades que incluimos en nuestro objeto,
+  // Por lo que el prototipo queda excluido.
 
-   console.log(h);  
-} while (h<=10);
+    if (!marco.hasOwnProperty( prop )) {
+      continue;
+    }
+    console.log(prop, ":", marco[prop]);
+  }
+
+
+  //forache
+[1,2,3,4,5,6,true,8,9,false,"nombre"].forEach(val => {
+  console.log(val);
+});
