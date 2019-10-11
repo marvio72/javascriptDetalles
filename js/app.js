@@ -1,24 +1,30 @@
 
 
-document.onmousedown = function (arg) {
-  
-  
-  if (arg.button === 2) {
-    
-    alert("Click bloqueado");
+function validar() {
 
-  }else{
+  var nombre = document.getElementById("txtNombre").value;
+  var apellido = document.getElementById("txtApellido").value;
 
-    console.log("No hay problema");
 
+  console.log(nombre);
+
+  if (nombre.length < 1) {
+    return false;
   }
 
-};
+  if (apellido.length < 1) {
+    return false;
+  }
 
-// con este evento podemos seleccionar un pedazo de texto y al terminar lo tenemos dentro de una variable
-document.onmouseup = function () {
-  
-  var texto = window.getSelection().toString();
-
-  console.log(texto);
+  return true;
 }
+
+
+console.log(window.location.search);
+console.log(window.location.search.split("&"));
+
+function getParamURL(name) {
+  return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null
+}
+
+console.log(getParamURL("txtApellido"));
