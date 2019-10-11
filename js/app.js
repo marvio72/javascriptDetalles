@@ -1,15 +1,24 @@
 
 
-    function evento(arg){
-      console.log("Me disparé");
-      console.log(arg.x, arg.y);
-    }
-
-
-    var objeto = document.getElementById("objDemo");
+document.onmousedown = function (arg) {
+  
+  
+  if (arg.button === 2) {
     
-    objeto.addEventListener("keypress",evento);
+    alert("Click bloqueado");
 
-    var boton = document.getElementById("btnDemo");
+  }else{
 
-    boton.addEventListener("click",evento);
+    console.log("No hay problema");
+
+  }
+
+};
+
+// con este evento podemos seleccionar un pedazo de texto y al terminar lo tenemos dentro de una variable
+document.onmouseup = function () {
+  
+  var texto = window.getSelection().toString();
+
+  console.log(texto);
+}
